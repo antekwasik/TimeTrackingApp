@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TimeTrackingsApp.Models.Entities;
+using TimeTrackingApp.Services;
+
 
 namespace TimeTrackingApp.Controllers
 {
@@ -11,11 +13,13 @@ namespace TimeTrackingApp.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly ApplicationDbContext _context;
+        private readonly INotificationEmailService _notificationEmailService;
 
-        public EmployeeController(UserManager<User> userManager, ApplicationDbContext context)
+        public EmployeeController(UserManager<User> userManager, ApplicationDbContext context, INotificationEmailService notificationEmailService)
         {
             _userManager = userManager;
             _context = context;
+            _notificationEmailService = notificationEmailService;
         }
 
         // =============================
@@ -193,6 +197,8 @@ namespace TimeTrackingApp.Controllers
 
             _context.LeaveRequests.Add(request);
             await _context.SaveChangesAsync();
+
+            await _notificationEmailService.SendLeaveRequestSubmittedEmail(user);
 
             TempData["success"] = "Wniosek urlopowy został zapisany.";
             return RedirectToAction("Panel");

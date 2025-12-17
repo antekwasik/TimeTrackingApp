@@ -1,0 +1,208 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|c:\\users\\antek w\u0105sik\\documents\\timetrackingapp\\timetrackingapp\\timetrackingapp\\views\\admin\\workreport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|solutionrelative:timetrackingapp\\views\\admin\\workreport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|c:\\users\\antek w\u0105sik\\documents\\timetrackingapp\\timetrackingapp\\timetrackingapp\\views\\admin\\panel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|solutionrelative:timetrackingapp\\views\\admin\\panel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|c:\\users\\antek w\u0105sik\\documents\\timetrackingapp\\timetrackingapp\\timetrackingapp\\views\\admin\\leaverequests.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|solutionrelative:timetrackingapp\\views\\admin\\leaverequests.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|c:\\users\\antek w\u0105sik\\documents\\timetrackingapp\\timetrackingapp\\timetrackingapp\\controllers\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|solutionrelative:timetrackingapp\\controllers\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|c:\\users\\antek w\u0105sik\\documents\\timetrackingapp\\timetrackingapp\\timetrackingapp\\views\\admin\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|solutionrelative:timetrackingapp\\views\\admin\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|c:\\users\\antek w\u0105sik\\documents\\timetrackingapp\\timetrackingapp\\timetrackingapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|solutionrelative:timetrackingapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|c:\\users\\antek w\u0105sik\\documents\\timetrackingapp\\timetrackingapp\\timetrackingapp\\services\\notificationemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|solutionrelative:timetrackingapp\\services\\notificationemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|c:\\users\\antek w\u0105sik\\documents\\timetrackingapp\\timetrackingapp\\timetrackingapp\\services\\inotificationemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|solutionrelative:timetrackingapp\\services\\inotificationemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|c:\\users\\antek w\u0105sik\\documents\\timetrackingapp\\timetrackingapp\\timetrackingapp\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|solutionrelative:timetrackingapp\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|c:\\users\\antek w\u0105sik\\documents\\timetrackingapp\\timetrackingapp\\timetrackingapp\\areas\\identity\\pages\\account\\forgotpassword.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|solutionrelative:timetrackingapp\\areas\\identity\\pages\\account\\forgotpassword.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|c:\\users\\antek w\u0105sik\\documents\\timetrackingapp\\timetrackingapp\\timetrackingapp\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3094EF-2B30-FB53-9358-26EE34B3F3B5}|TimeTrackingApp\\TimeTrackingApp.csproj|solutionrelative:timetrackingapp\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ForgotPassword.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml.cs",
+              "RelativeDocumentMoniker": "TimeTrackingApp\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml.cs",
+              "ToolTip": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml.cs",
+              "RelativeToolTip": "TimeTrackingApp\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwFwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T17:56:40.452Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Views\\Admin\\Edit.cshtml",
+              "RelativeDocumentMoniker": "TimeTrackingApp\\Views\\Admin\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Views\\Admin\\Edit.cshtml",
+              "RelativeToolTip": "TimeTrackingApp\\Views\\Admin\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T21:17:41.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LeaveRequests.cshtml",
+              "DocumentMoniker": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Views\\Admin\\LeaveRequests.cshtml",
+              "RelativeDocumentMoniker": "TimeTrackingApp\\Views\\Admin\\LeaveRequests.cshtml",
+              "ToolTip": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Views\\Admin\\LeaveRequests.cshtml",
+              "RelativeToolTip": "TimeTrackingApp\\Views\\Admin\\LeaveRequests.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T21:17:32.184Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WorkReport.cshtml",
+              "DocumentMoniker": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Views\\Admin\\WorkReport.cshtml",
+              "RelativeDocumentMoniker": "TimeTrackingApp\\Views\\Admin\\WorkReport.cshtml",
+              "ToolTip": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Views\\Admin\\WorkReport.cshtml",
+              "RelativeToolTip": "TimeTrackingApp\\Views\\Admin\\WorkReport.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T21:17:06.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Controllers\\Admin.cs",
+              "RelativeDocumentMoniker": "TimeTrackingApp\\Controllers\\Admin.cs",
+              "ToolTip": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Controllers\\Admin.cs",
+              "RelativeToolTip": "TimeTrackingApp\\Controllers\\Admin.cs",
+              "ViewState": "AgIAANMAAAAAAAAAAAAAAO8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T18:34:35.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Panel.cshtml",
+              "DocumentMoniker": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Views\\Admin\\Panel.cshtml",
+              "RelativeDocumentMoniker": "TimeTrackingApp\\Views\\Admin\\Panel.cshtml",
+              "ToolTip": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Views\\Admin\\Panel.cshtml",
+              "RelativeToolTip": "TimeTrackingApp\\Views\\Admin\\Panel.cshtml",
+              "ViewState": "AgIAACwAAAAAAAAAAAAUwEIAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T18:22:43.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Program.cs",
+              "RelativeDocumentMoniker": "TimeTrackingApp\\Program.cs",
+              "ToolTip": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Program.cs",
+              "RelativeToolTip": "TimeTrackingApp\\Program.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAQwE8AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T17:57:23.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EmployeeController.cs",
+              "DocumentMoniker": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "TimeTrackingApp\\Controllers\\EmployeeController.cs",
+              "ToolTip": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "TimeTrackingApp\\Controllers\\EmployeeController.cs",
+              "ViewState": "AgIAAKoAAAAAAAAAAAAAwMgAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T18:15:12.675Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Register.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeDocumentMoniker": "TimeTrackingApp\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ToolTip": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "RelativeToolTip": "TimeTrackingApp\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+              "ViewState": "AgIAAKMAAAAAAAAAAAAmwMwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T17:56:17.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "INotificationEmailService.cs",
+              "DocumentMoniker": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Services\\INotificationEmailService.cs",
+              "RelativeDocumentMoniker": "TimeTrackingApp\\Services\\INotificationEmailService.cs",
+              "ToolTip": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Services\\INotificationEmailService.cs",
+              "RelativeToolTip": "TimeTrackingApp\\Services\\INotificationEmailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T17:55:47.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NotificationEmailService.cs",
+              "DocumentMoniker": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Services\\NotificationEmailService.cs",
+              "RelativeDocumentMoniker": "TimeTrackingApp\\Services\\NotificationEmailService.cs",
+              "ToolTip": "C:\\Users\\Antek W\u0105sik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\Services\\NotificationEmailService.cs",
+              "RelativeToolTip": "TimeTrackingApp\\Services\\NotificationEmailService.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwBgAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T17:55:46.02Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

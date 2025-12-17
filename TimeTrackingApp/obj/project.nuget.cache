@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sx5Xik7Pnf8=",
+  "dgSpecHash": "Kz8+idbC+w4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Antek Wąsik\\source\\repos\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp.csproj",
+  "projectFilePath": "C:\\Users\\Antek Wąsik\\Documents\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp\\TimeTrackingApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Antek Wąsik\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\Antek Wąsik\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",

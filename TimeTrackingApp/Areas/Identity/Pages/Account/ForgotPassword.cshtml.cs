@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using TimeTrackingsApp.Models.Entities;
+using TimeTrackingApp.Services;
+
 
 namespace TimeTrackingApp.Areas.Identity.Pages.Account
 {
@@ -21,11 +23,14 @@ namespace TimeTrackingApp.Areas.Identity.Pages.Account
     {
         private readonly UserManager<User> _userManager;
         private readonly IEmailSender _emailSender;
+        private readonly INotificationEmailService _notificationEmailService;
 
-        public ForgotPasswordModel(UserManager<User> userManager, IEmailSender emailSender)
+
+        public ForgotPasswordModel(UserManager<User> userManager, IEmailSender emailSender, INotificationEmailService notificationEmailService)
         {
             _userManager = userManager;
             _emailSender = emailSender;
+            _notificationEmailService = notificationEmailService;
         }
 
         /// <summary>
@@ -75,6 +80,8 @@ namespace TimeTrackingApp.Areas.Identity.Pages.Account
                     Input.Email,
                     "Reset Password",
                     $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+                await _notificationEmailService.SendPasswordResetEmail(user, callbackUrl);
 
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }

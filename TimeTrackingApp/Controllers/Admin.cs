@@ -4,6 +4,7 @@ namespace TimeTrackingApp.Controllers
 {
     using global::TimeTrackingApp.Models.ViewModel;
     using global::TimeTrackingsApp.Models.Entities;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ namespace TimeTrackingApp.Controllers
 
     namespace TimeTrackingApp.Controllers
     {
+        [Authorize(Roles = "Admin")]
         public class AdminController : Controller
         {
             private readonly ApplicationDbContext _context;
@@ -178,6 +180,62 @@ namespace TimeTrackingApp.Controllers
 
                 return RedirectToAction(nameof(Panel));
             }
+            public async Task<IActionResult> WorkReport(int? year, int? month)
+            {
+                year ??= DateTime.UtcNow.Year;
+                month ??= DateTime.UtcNow.Month;
+
+                var entries = await _context.TimeEntries
+                    .Include(t => t.User)
+                    .Where(t => t.entrydate.Year == year && t.entrydate.Month == month)
+                    .OrderBy(t => t.User.LastName)
+                    .ThenBy(t => t.entrydate)
+                    .ToListAsync();
+
+                ViewBag.Year = year;
+                ViewBag.Month = month;
+
+                return View(entries);
+            }
+            public async Task<IActionResult> LeaveRequests()
+            {
+                var requests = await _context.LeaveRequests
+                    .Include(l => l.User)
+                    .OrderByDescending(l => l.requestdate)
+                    .ToListAsync();
+
+                return View(requests);
+            }
+            public async Task<IActionResult> ExportWorkReportCsv(int year, int month)
+            {
+                var entries = await _context.TimeEntries
+                    .Include(t => t.User)
+                    .Where(t => t.entrydate.Year == year && t.entrydate.Month == month)
+                    .ToListAsync();
+
+                var sb = new System.Text.StringBuilder();
+                sb.AppendLine("Imię,Nazwisko,Email,Data,Start,Koniec,Godziny");
+
+                foreach (var e in entries)
+                {
+                    sb.AppendLine(
+                        $"{e.User.FirstName}," +
+                        $"{e.User.LastName}," +
+                        $"{e.User.Email}," +
+                        $"{e.entrydate:yyyy-MM-dd}," +
+                        $"{e.starttime}," +
+                        $"{e.endtime}," +
+                        $"{e.totalhours:F2}"
+                    );
+                }
+
+                return File(
+                    System.Text.Encoding.UTF8.GetBytes(sb.ToString()),
+                    "text/csv",
+                    $"raport_czasu_{year}_{month}.csv"
+                );
+            }
+
         }
     }
 }

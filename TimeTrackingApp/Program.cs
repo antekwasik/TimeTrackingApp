@@ -21,6 +21,7 @@ builder.Services.Configure<EmailSettings>(
     builder.Configuration.GetSection("EmailSettings"));
 
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<INotificationEmailService, NotificationEmailService>();
 
 
 var app = builder.Build();

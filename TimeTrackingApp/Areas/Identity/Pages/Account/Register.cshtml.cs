@@ -15,6 +15,8 @@ using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
 using TimeTrackingsApp.Models.Entities;
+using TimeTrackingApp.Services;
+
 
 namespace TimeTrackingApp.Areas.Identity.Pages.Account
 {
@@ -26,13 +28,16 @@ namespace TimeTrackingApp.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<User> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly INotificationEmailService _notificationEmailService;
+
 
         public RegisterModel(
             UserManager<User> userManager,
             IUserStore<User> userStore,
             SignInManager<User> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            INotificationEmailService notificationEmailService)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -40,6 +45,7 @@ namespace TimeTrackingApp.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _notificationEmailService = notificationEmailService;
         }
 
         /// <summary>
@@ -135,7 +141,10 @@ namespace TimeTrackingApp.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
+
                     _logger.LogInformation("User created a new account with password.");
+
+                    await _notificationEmailService.SendWelcomeEmail(user, Input.Password);
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -159,6 +168,7 @@ namespace TimeTrackingApp.Areas.Identity.Pages.Account
                         return LocalRedirect(returnUrl);
                     }
                 }
+
                 foreach (var error in result.Errors)
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
