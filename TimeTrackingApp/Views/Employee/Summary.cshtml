@@ -1,0 +1,24 @@
+﻿@model List<TimeTrackingsApp.Models.Entities.TimeEntry>
+
+<h2>Podsumowanie @ViewBag.Month/@ViewBag.Year</h2>
+
+<p><strong>Łącznie godzin:</strong> @ViewBag.TotalHours.ToString("0.00")</p>
+
+<table class="table table-striped">
+    <tr>
+        <th>Data</th>
+        <th>Start</th>
+        <th>Koniec</th>
+        <th>Godziny</th>
+    </tr>
+
+    @foreach (var e in Model)
+    {
+        <tr>
+            <td>@e.entrydate.ToString("yyyy-MM-dd")</td>
+            <td>@e.starttime.ToString(@"hh\:mm\:ss")</td>
+            <td>@e.endtime.ToString(@"hh\:mm\:ss")</td>
+            <td>@e.totalhours.ToString("0")</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,27 @@
+﻿@model List<TimeTrackingsApp.Models.Entities.TimeEntry>
+
+<h2>Historia wpisów</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>Data</th>
+        <th>Początek</th>
+        <th>Koniec</th>
+        <th>Godziny</th>
+    </tr>
+
+    @foreach (var e in Model)
+    {
+        <tr>
+            <td>@e.entrydate.ToString("yyyy-MM-dd")</td>
+            <td>@e.starttime.ToString(@"hh\:mm\:ss")</td>
+
+            <td>
+                @(e.endtime == TimeSpan.Zero
+                            ? "-"
+                            : e.endtime.ToString(@"hh\:mm\:ss"))
+            </td>
+            <td>@e.totalhours.ToString("0.00")</td>
+        </tr>
+    }
+</table>

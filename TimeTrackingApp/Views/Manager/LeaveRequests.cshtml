@@ -1,0 +1,61 @@
+﻿@model List<TimeTrackingsApp.Models.Entities.LeaveRequest>
+
+<h2>Wnioski urlopowe</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Pracownik</th>
+            <th>Typ</th>
+            <th>Od</th>
+            <th>Do</th>
+            <th>Dni</th>
+            <th>Status</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.User?.UserName</td>
+                <td>@item.leavetype</td>
+                <td>@item.startdate.ToShortDateString()</td>
+                <td>@item.enddate.ToShortDateString()</td>
+                <td>@item.dayscount</td>
+                <td>
+                    @if (item.status == "Pending")
+                    {
+                        <span class="badge bg-warning text-dark">Oczekuje</span>
+                    }
+                    else if (item.status == "Approved")
+                    {
+                        <span class="badge bg-success">Zatwierdzony</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Odrzucony</span>
+                    }
+                </td>
+                <td>
+                    @if (item.status == "Pending")
+                    {
+                        <form asp-action="ApproveLeave" method="post" style="display:inline">
+                            <input type="hidden" name="id" value="@item.id" />
+                            <button class="btn btn-success btn-sm">✔</button>
+                        </form>
+
+                        <form asp-action="RejectLeave" method="post" style="display:inline">
+                            <input type="hidden" name="id" value="@item.id" />
+                            <button class="btn btn-danger btn-sm">✖</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <em>Decyzja podjęta</em>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Panel pracownika";
+}
+
+<h2>Panel pracownika</h2>
+
+@if (TempData["success"] != null)
+{
+    <div class="alert alert-success">@TempData["success"]</div>
+}
+
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger">@TempData["error"]</div>
+}
+
+@if (ViewBag.HasStartedWork)
+{
+    <form method="post" asp-action="EndWork">
+        <button class="btn btn-danger btn-lg">Zakończ pracę</button>
+    </form>
+}
+else
+{
+    <form method="post" asp-action="StartWork">
+        <button class="btn btn-success btn-lg">Rozpocznij pracę</button>
+    </form>
+}
+
+<hr />
+
+<a class="btn btn-primary mt-3" asp-action="History">Historia wpisów</a>
+<a class="btn btn-secondary mt-3" asp-action="Summary">Podsumowanie miesiąca</a>
+<hr />
+
+<a asp-action="LeaveRequest" class="btn btn-warning">
+    Złóż wniosek urlopowy
+</a>

@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Wniosek urlopowy";
+}
+
+<h2>Wniosek urlopowy</h2>
+
+<form asp-action="LeaveRequest" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label>Typ urlopu</label>
+        <select name="leavetype" class="form-control" required>
+            <option value="">-- wybierz --</option>
+            <option value="Wypoczynkowy">Wypoczynkowy</option>
+            <option value="Na żądanie">Na żądanie</option>
+            <option value="Bezpłatny">Bezpłatny</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Od</label>
+        <input name="startdate" type="date" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Do</label>
+        <input name="enddate" type="date" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label>Powód</label>
+        <textarea name="reason" class="form-control"></textarea>
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-success">
+        Wyślij
+    </button>
+</form>
