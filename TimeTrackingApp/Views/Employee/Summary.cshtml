@@ -2,23 +2,71 @@
 
 <h2>Podsumowanie @ViewBag.Month/@ViewBag.Year</h2>
 
-<p><strong>Łącznie godzin:</strong> @ViewBag.TotalHours.ToString("0.00")</p>
+<p>
+    <strong>Łącznie:</strong>
+    @(ViewBag.TotalHours < 1
+        ? $"{Math.Round(ViewBag.TotalHours * 60)} minut"
+        : $"{Math.Floor(ViewBag.TotalHours)}h {Math.Round((ViewBag.TotalHours % 1) * 60)} min")
+</p>
+
+<script>
+    var szer = window.matchMedia("(max-width: 1135px)");
+
+    document.addEventListener("DOMContentLoaded", function () {
+        renderTable();
+    });
+
+    szer.addEventListener('change', () => {
+        renderTable();
+    });
+
+    function renderTable() {
+        if (szer.matches) {
+            document.getElementById('table').innerHTML =
+            `
+            @foreach (var e in Model)
+            {
+                    <tr><th>Data</th><td>@e.entrydate.ToString("yyyy-MM-dd")</td></tr>
+                    <tr><th>Start</th><td>@e.starttime.ToString(@"hh\:mm\:ss")</td></tr>
+                    <tr><th>Koniec</th><td>@e.endtime.ToString(@"hh\:mm\:ss")</td></tr>
+                    <tr>
+                        <th>Czas</th>
+                        <td>
+                            @(e.totalhours < 1
+                                                            ? $"{Math.Round(e.totalhours * 60)} minut"
+                                                            : $"{Math.Floor(e.totalhours)}h {Math.Round((e.totalhours % 1) * 60)} min")
+                        </td>
+                    </tr>
+                    <tr><td colspan="2"><hr /></td></tr>
+            }
+            `;
+        } else {
+            document.getElementById('table').innerHTML =
+            `
+            <tr>
+                <th>Data</th>
+                <th>Start</th>
+                <th>Koniec</th>
+                <th>Czas</th>
+            </tr>
+            @foreach (var e in Model)
+            {
+                    <tr>
+                        <td>@e.entrydate.ToString("yyyy-MM-dd")</td>
+                        <td>@e.starttime.ToString(@"hh\:mm\:ss")</td>
+                        <td>@e.endtime.ToString(@"hh\:mm\:ss")</td>
+                        <td>
+                            @(e.totalhours < 1
+                                                            ? $"{Math.Round(e.totalhours * 60)} min"
+                                                            : $"{Math.Floor(e.totalhours)}h {Math.Round((e.totalhours % 1) * 60)} min")
+                        </td>
+                    </tr>
+            }
+            `;
+        }
+    }
+</script>
 
 <table class="table table-striped">
-    <tr>
-        <th>Data</th>
-        <th>Start</th>
-        <th>Koniec</th>
-        <th>Godziny</th>
-    </tr>
-
-    @foreach (var e in Model)
-    {
-        <tr>
-            <td>@e.entrydate.ToString("yyyy-MM-dd")</td>
-            <td>@e.starttime.ToString(@"hh\:mm\:ss")</td>
-            <td>@e.endtime.ToString(@"hh\:mm\:ss")</td>
-            <td>@e.totalhours.ToString("0")</td>
-        </tr>
-    }
+    <tbody id="table"></tbody>
 </table>

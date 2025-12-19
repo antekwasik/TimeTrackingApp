@@ -2,60 +2,120 @@
 
 <h2>Wnioski urlopowe</h2>
 
-<table class="table table-bordered table-striped">
-    <thead>
-        <tr>
-            <th>Pracownik</th>
-            <th>Typ</th>
-            <th>Od</th>
-            <th>Do</th>
-            <th>Dni</th>
-            <th>Status</th>
-            <th>Akcje</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.User?.UserName</td>
-                <td>@item.leavetype</td>
-                <td>@item.startdate.ToShortDateString()</td>
-                <td>@item.enddate.ToShortDateString()</td>
-                <td>@item.dayscount</td>
-                <td>
-                    @if (item.status == "Pending")
-                    {
-                        <span class="badge bg-warning text-dark">Oczekuje</span>
-                    }
-                    else if (item.status == "Approved")
-                    {
-                        <span class="badge bg-success">Zatwierdzony</span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-danger">Odrzucony</span>
-                    }
-                </td>
-                <td>
-                    @if (item.status == "Pending")
-                    {
-                        <form asp-action="ApproveLeave" method="post" style="display:inline">
-                            <input type="hidden" name="id" value="@item.id" />
-                            <button class="btn btn-success btn-sm">✔</button>
-                        </form>
+<script>
+    var szer = window.matchMedia("(max-width: 1135px)");
 
-                        <form asp-action="RejectLeave" method="post" style="display:inline">
-                            <input type="hidden" name="id" value="@item.id" />
-                            <button class="btn btn-danger btn-sm">✖</button>
-                        </form>
-                    }
-                    else
-                    {
-                        <em>Decyzja podjęta</em>
-                    }
-                </td>
-            </tr>
+    document.addEventListener("DOMContentLoaded", renderTable);
+    szer.addEventListener("change", renderTable);
+
+    function renderTable() {
+        const table = document.getElementById("table");
+
+        if (szer.matches) {
+            table.innerHTML = `
+                @foreach (var item in Model)
+                {
+                        <tr><th>Pracownik</th><td>@item.User?.UserName</td></tr>
+                        <tr><th>Typ</th><td>@item.leavetype</td></tr>
+                        <tr><th>Od</th><td>@item.startdate.ToShortDateString()</td></tr>
+                        <tr><th>Do</th><td>@item.enddate.ToShortDateString()</td></tr>
+                        <tr><th>Dni</th><td>@item.dayscount</td></tr>
+                        <tr>
+                            <th>Status</th>
+                            <td>
+                                @if (item.status == "Pending")
+                                {
+                                        <span class="badge bg-warning text-dark">Oczekuje</span>
+                                }
+                                else if (item.status == "Approved")
+                                {
+                                        <span class="badge bg-success">Zatwierdzony</span>
+                                }
+                                else
+                                {
+                                        <span class="badge bg-danger">Odrzucony</span>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                @if (item.status == "Pending")
+                                {
+                                        <form asp-action="ApproveLeave" method="post" class="mb-1">
+                                            <input type="hidden" name="id" value="@item.id" />
+                                            <button class="btn btn-success w-100">Zatwierdź</button>
+                                        </form>
+                                        <form asp-action="RejectLeave" method="post">
+                                            <input type="hidden" name="id" value="@item.id" />
+                                            <button class="btn btn-danger w-100">Odrzuć</button>
+                                        </form>
+                                }
+                                else
+                                {
+                                        <em>Decyzja podjęta</em>
+                                }
+                            </td>
+                        </tr>
+                        <tr><td colspan="2"><hr/></td></tr>
+                }
+            `;
+        } else {
+            table.innerHTML = `
+                <tr>
+                    <th>Pracownik</th>
+                    <th>Typ</th>
+                    <th>Od</th>
+                    <th>Do</th>
+                    <th>Dni</th>
+                    <th>Status</th>
+                    <th>Akcje</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                        <tr>
+                            <td>@item.User?.UserName</td>
+                            <td>@item.leavetype</td>
+                            <td>@item.startdate.ToShortDateString()</td>
+                            <td>@item.enddate.ToShortDateString()</td>
+                            <td>@item.dayscount</td>
+                            <td>
+                                @if (item.status == "Pending")
+                                {
+                                        <span class="badge bg-warning text-dark">Oczekuje</span>
+                                }
+                                else if (item.status == "Approved")
+                                {
+                                        <span class="badge bg-success">Zatwierdzony</span>
+                                }
+                                else
+                                {
+                                        <span class="badge bg-danger">Odrzucony</span>
+                                }
+                            </td>
+                            <td>
+                                @if (item.status == "Pending")
+                                {
+                                        <form asp-action="ApproveLeave" method="post" style="display:inline">
+                                            <input type="hidden" name="id" value="@item.id" />
+                                            <button class="btn btn-success btn-sm">Tak</button>
+                                        </form>
+                                        <form asp-action="RejectLeave" method="post" style="display:inline">
+                                            <input type="hidden" name="id" value="@item.id" />
+                                            <button class="btn btn-danger btn-sm">Nie</button>
+                                        </form>
+                                }
+                                else
+                                {
+                                        <em>Decyzja podjęta</em>
+                                }
+                            </td>
+                        </tr>
+                }
+            `;
         }
-    </tbody>
+    }
+</script>
+
+<table class="table table-bordered table-striped">
+    <tbody id="table"></tbody>
 </table>

@@ -2,34 +2,67 @@
 
 <h2>Pracownicy działu</h2>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Imię i nazwisko</th>
-            <th>Stanowisko</th>
-            <th>Godziny w miesiącu</th>
-            <th>Liczba wpisów</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var e in Model)
-        {
-            <tr>
-                <td>@e.FullName</td>
-                <td>@e.Position</td>
-                <td>@e.TotalHoursThisMonth.ToString("0.00")</td>
-                <td>@e.EntriesCount</td>
-                <td>
-                    <a class="btn btn-info"
-                       asp-action="History"
-                       asp-route-id="@e.UserId">
-                        Historia
-                    </a>
-                </td>
-            </tr>
+<script>
+    var szer = window.matchMedia("(max-width: 1135px)");
+
+    document.addEventListener("DOMContentLoaded", renderTable);
+    szer.addEventListener("change", renderTable);
+
+    function renderTable() {
+        const table = document.getElementById("table");
+
+        if (szer.matches) {
+            table.innerHTML = `
+                @foreach (var e in Model)
+                {
+                        <tr><th>Imię i nazwisko</th><td>@e.FullName</td></tr>
+                        <tr><th>Stanowisko</th><td>@e.Position</td></tr>
+                        <tr><th>Godziny w miesiącu</th><td>@e.TotalHoursThisMonth.ToString("0.00")</td></tr>
+                        <tr><th>Liczba wpisów</th><td>@e.EntriesCount</td></tr>
+                        <tr>
+                            <td colspan="2">
+                                <a class="btn btn-info w-100"
+                                   asp-action="History"
+                                   asp-route-id="@e.UserId">
+                                    Historia
+                                </a>
+                            </td>
+                        </tr>
+                        <tr><td colspan="2"><hr/></td></tr>
+                }
+            `;
+        } else {
+            table.innerHTML = `
+                <tr>
+                    <th>Imię i nazwisko</th>
+                    <th>Stanowisko</th>
+                    <th>Godziny w miesiącu</th>
+                    <th>Liczba wpisów</th>
+                    <th></th>
+                </tr>
+                @foreach (var e in Model)
+                {
+                        <tr>
+                            <td>@e.FullName</td>
+                            <td>@e.Position</td>
+                            <td>@e.TotalHoursThisMonth.ToString("0.00")</td>
+                            <td>@e.EntriesCount</td>
+                            <td>
+                                <a class="btn btn-info"
+                                   asp-action="History"
+                                   asp-route-id="@e.UserId">
+                                    Historia
+                                </a>
+                            </td>
+                        </tr>
+                }
+            `;
         }
-    </tbody>
+    }
+</script>
+
+<table class="table table-striped">
+    <tbody id="table"></tbody>
 </table>
 
 <a asp-action="LeaveRequests" class="btn btn-primary">

@@ -8,7 +8,7 @@ using TimeTrackingApp.Services;
 
 namespace TimeTrackingApp.Controllers
 {
-    [Authorize] // każdy zalogowany użytkownik
+    [Authorize]
     public class EmployeeController : Controller
     {
         private readonly UserManager<User> _userManager;
@@ -22,14 +22,11 @@ namespace TimeTrackingApp.Controllers
             _notificationEmailService = notificationEmailService;
         }
 
-        // =============================
-        // PANEL PRACOWNIKA
-        // =============================
         public async Task<IActionResult> Panel()
         {
             var user = await _userManager.GetUserAsync(User);
 
-            // sprawdzamy czy dziś ma otwarty wpis (start bez end)
+
             var today = DateTime.UtcNow.Date;
 
             var openEntry = await _context.TimeEntries
@@ -44,16 +41,12 @@ namespace TimeTrackingApp.Controllers
         }
 
 
-        // =============================
-        // ROZPOCZĘCIE PRACY
-        // =============================
         [HttpPost]
         public async Task<IActionResult> StartWork()
         {
             var user = await _userManager.GetUserAsync(User);
             var today = DateTime.UtcNow.Date;
 
-            // Czy już zaczął dziś pracę?
             var existing = await _context.TimeEntries
                 .FirstOrDefaultAsync(t => t.userid == user.Id && t.entrydate == today);
 
@@ -81,9 +74,6 @@ namespace TimeTrackingApp.Controllers
         }
 
 
-        // =============================
-        // ZAKOŃCZENIE PRACY
-        // =============================
         [HttpPost]
         public async Task<IActionResult> EndWork()
         {
@@ -104,7 +94,6 @@ namespace TimeTrackingApp.Controllers
 
             entry.endtime = DateTime.UtcNow.TimeOfDay;
 
-            // obliczanie czasu pracy
             entry.totalhours = (entry.endtime - entry.starttime).TotalHours;
 
             entry.modifiedby = user.Id;
@@ -115,10 +104,6 @@ namespace TimeTrackingApp.Controllers
             return RedirectToAction("Panel");
         }
 
-
-        // =============================
-        // HISTORIA WPISÓW
-        // =============================
         public async Task<IActionResult> History()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -132,9 +117,7 @@ namespace TimeTrackingApp.Controllers
         }
 
 
-        // =============================
-        // SUMA GODZIN W MIESIĄCU
-        // =============================
+
         public async Task<IActionResult> Summary(int? year, int? month)
         {
             var user = await _userManager.GetUserAsync(User);
@@ -162,9 +145,7 @@ namespace TimeTrackingApp.Controllers
         {
             return View();
         }
-        // =============================
-        // WNIOSEK URLOPOWY – ZAPIS
-        // =============================
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> LeaveRequest(
@@ -203,6 +184,35 @@ namespace TimeTrackingApp.Controllers
             TempData["success"] = "Wniosek urlopowy został zapisany.";
             return RedirectToAction("Panel");
         }
+        [HttpGet]
+        public async Task<IActionResult> GetLeavesForCalendar()
+        {
+            var leaves = await _context.LeaveRequests
+                .Include(l => l.User)
+                .Select(l => new
+                {
+                    title = $"{l.User.FirstName} {l.User.LastName} ({l.leavetype})",
+                    start = l.startdate.ToString("yyyy-MM-dd"),
+                    end = l.enddate.AddDays(1).ToString("yyyy-MM-dd"),
+
+                    backgroundColor =
+                        l.leavetype == "Wypoczynkowy" ? "#10274e" : 
+                        l.leavetype == "Bezpłatny" ? "#3d5eae" :     
+                        l.leavetype == "Na żądanie" ? "#7c98fb" :     
+                        "#0d6efd",                                      
+
+                    borderColor =
+                        l.leavetype == "Wypoczynkowy" ? "#10274e" :
+                        l.leavetype == "Bezpłatny" ? "#3d5eae" :
+                        l.leavetype == "Na żądanie" ? "#7c98fb" :
+                        "#0d6efd"
+                })
+                .ToListAsync();
+
+            return Json(leaves);
+        }
+
+
 
     }
 }

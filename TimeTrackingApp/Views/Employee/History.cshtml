@@ -2,26 +2,57 @@
 
 <h2>Historia wpisów</h2>
 
-<table class="table table-striped">
-    <tr>
-        <th>Data</th>
-        <th>Początek</th>
-        <th>Koniec</th>
-        <th>Godziny</th>
-    </tr>
+<script>
+    var szer = window.matchMedia("(max-width: 1135px)");
 
-    @foreach (var e in Model)
-    {
-        <tr>
-            <td>@e.entrydate.ToString("yyyy-MM-dd")</td>
-            <td>@e.starttime.ToString(@"hh\:mm\:ss")</td>
+    document.addEventListener("DOMContentLoaded", function () {
+        renderTable();
+    });
 
-            <td>
-                @(e.endtime == TimeSpan.Zero
-                            ? "-"
-                            : e.endtime.ToString(@"hh\:mm\:ss"))
-            </td>
-            <td>@e.totalhours.ToString("0.00")</td>
-        </tr>
+    szer.addEventListener('change', () => {
+        renderTable();
+    });
+
+    function renderTable() {
+        if (szer.matches) {
+            document.getElementById('table').innerHTML =
+                `
+                @foreach (var e in Model)
+                {
+                        <tr><th>Data</th><td>@e.entrydate.ToString("yyyy-MM-dd")</td></tr>
+                        <tr><th>Początek</th><td>@e.starttime.ToString(@"hh\:mm\:ss")</td></tr>
+                        <tr><th>Koniec</th><td>@(e.endtime == TimeSpan.Zero ? "-" : e.endtime.ToString(@"hh\:mm\:ss"))</td></tr>
+                        <tr><th>Godziny</th><td>@e.totalhours.ToString("0.00")</td></tr>
+                        <tr><td colspan="2"><hr /></td></tr>
+                }
+                `;
+        } else {
+            document.getElementById('table').innerHTML =
+                `
+                <tr>
+                    <th>Data</th>
+                    <th>Początek</th>
+                    <th>Koniec</th>
+                    <th>Godziny</th>
+                </tr>
+                @foreach (var e in Model)
+                {
+                        <tr>
+                            <td>@e.entrydate.ToString("yyyy-MM-dd")</td>
+                            <td>@e.starttime.ToString(@"hh\:mm\:ss")</td>
+                            <td>@(e.endtime == TimeSpan.Zero ? "-" : e.endtime.ToString(@"hh\:mm\:ss"))</td>
+                            <td>@(e.totalhours < 1
+                              ? $"{Math.Round(e.totalhours * 60)} min"
+                              : $"{Math.Floor(e.totalhours)}h {Math.Round((e.totalhours % 1) * 60)} min")
+                            </td>
+                        </tr>
+                }
+                `;
+        }
     }
+</script>
+
+<table class="table table-striped">
+    <tbody id="table">
+    </tbody>
 </table>

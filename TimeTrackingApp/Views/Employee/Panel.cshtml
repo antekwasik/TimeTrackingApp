@@ -27,12 +27,39 @@ else
     </form>
 }
 
-<hr />
-
-<a class="btn btn-primary mt-3" asp-action="History">Historia wpisów</a>
-<a class="btn btn-secondary mt-3" asp-action="Summary">Podsumowanie miesiąca</a>
-<hr />
+<div style="margin-bottom:1%;">
+    <a class="btn btn-primary mt-3" asp-action="History">Historia wpisów</a>
+    <a class="btn btn-secondary mt-3" asp-action="Summary">Podsumowanie miesiąca</a>
+</div>
 
 <a asp-action="LeaveRequest" class="btn btn-warning">
     Złóż wniosek urlopowy
 </a>
+
+<hr />
+
+<h3>Kalendarz urlopów</h3>
+
+<div id="calendar"></div>
+
+
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet" />
+
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale: 'pl',
+            height: 650,
+
+            events: '/Employee/GetLeavesForCalendar'
+        });
+
+        calendar.render();
+    });
+</script>

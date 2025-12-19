@@ -18,8 +18,8 @@
         {
             <tr>
                 <td>@e.EntryDate.ToString("dd-MM-yyyy")</td>
-                <td>@e.StartTime</td>
-                <td>@(e.EndTime.ToString() ?? "W trakcie")</td>
+                <td>@e.StartTime.ToString(@"hh\:mm\:ss")</td>
+                <td>@(e.EndTime == TimeSpan.Zero ? "-" : e.EndTime.ToString(@"hh\:mm\:ss"))</td>
                 <td>@e.TotalHours.ToString("F2")</td>
                 <td>@e.Note</td>
                 <td>

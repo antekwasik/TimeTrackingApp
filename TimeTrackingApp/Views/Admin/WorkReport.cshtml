@@ -15,26 +15,74 @@
     Eksport CSV
 </a>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Pracownik</th>
-            <th>Data</th>
-            <th>Start</th>
-            <th>Koniec</th>
-            <th>Godziny</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var e in Model)
-        {
-            <tr>
-                <td>@e.User.FirstName @e.User.LastName</td>
-                <td>@e.entrydate.ToString("yyyy-MM-dd")</td>
-                <td>@e.starttime</td>
-                <td>@e.endtime</td>
-                <td>@e.totalhours.ToString("0.00")</td>
-            </tr>
+<script>
+    var szer = window.matchMedia("(max-width: 1135px)");
+
+    document.addEventListener("DOMContentLoaded", function () {
+        renderTable();
+    });
+
+    szer.addEventListener('change', () => {
+        renderTable();
+    });
+
+    function renderTable() {
+        if (szer.matches) {
+            document.getElementById('table').innerHTML = `
+                @foreach (var e in Model)
+                {
+                        <tr><th>Pracownik</th><td>@e.User.FirstName @e.User.LastName</td></tr>
+                        <tr><th>Data</th><td>@e.entrydate.ToString("yyyy-MM-dd")</td></tr>
+                        <tr><th>Start</th><td>@e.starttime.ToString(@"hh\:mm\:ss")</td></tr>
+                        <tr><th>Koniec</th><td>@e.endtime.ToString(@"hh\:mm\:ss")</td></tr>
+                        <tr><th>Godziny</th><td>@e.totalhours.ToString("0.00")</td></tr>
+                        <tr><td colspan="2"><hr /></td></tr>
+                }
+            `;
+        } else {
+            document.getElementById('table').innerHTML = `
+                <tr>
+                    <th>Pracownik</th>
+                    <th>Data</th>
+                    <th>Start</th>
+                    <th>Koniec</th>
+                    <th>Godziny</th>
+                </tr>
+                @foreach (var e in Model)
+                {
+                        <tr>
+                            <td>@e.User.FirstName @e.User.LastName</td>
+                            <td>@e.entrydate.ToString("yyyy-MM-dd")</td>
+                            <td>@e.starttime.ToString(@"hh\:mm\:ss")</td>
+                            <td>@e.endtime.ToString(@"hh\:mm\:ss")</td>
+                            <td>@{
+                                    var totalMinutes = (int)Math.Round(e.totalhours * 60);
+                                    var hours = totalMinutes / 60;
+                                    var minutes = totalMinutes % 60;
+                                        }
+
+                                    @if (hours == 0)
+                            {
+                                    @($"{minutes} min")
+                            }
+                            else if (minutes == 0)
+                            {
+                                    @($"{hours} h")
+                            }
+                            else
+                            {
+                                    @($"{hours} h {minutes} min")
+                            }
+                            </td>
+                        </tr>
+                }
+            `;
         }
+    }
+</script>
+
+<table class="table table-striped">
+    <tbody id="table">
     </tbody>
 </table>
+
